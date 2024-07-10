@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic_Tac_Toe</title>
+    <link rel="stylesheet" href="C:\Users\amuly\OneDrive\Desktop\P1 three\style.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif; /* Example font family */
+        font-size: 18px; /* Example font size */
+    }
+    .header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: right;
+    }
+
+    .header a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 20px;
+    }
+
+    .turn-highlight {
+        background-color: rgb(42, 42, 1); /* Example highlight color */
+        font-weight: bold; /* Example: Make the text bold */
+    }
+    #playerNames {
+        font-size: 25px; /* Adjust font size for player names */
+        font-weight: bold; /* Example: Make player names bold */
+        margin-top: 10px; /* Example: Add some margin */
+    }
+</style>
+<body>
+    <div id="playerNames"></div>
+
+    <script>
+       
+        function simulateTurns(player1, player2) {
+            let currentPlayer = player1; // Start with Player A
+            let currentSymbol = 'X'; // Player A plays with X, Player B plays with O
+
+            setInterval(function() {
+                // Example: Toggle turns every 3 seconds (replace with your actual game logic)
+                if (currentPlayer === player1) {
+                    highlightTurn(player1);
+                    currentPlayer = player2;
+                    currentSymbol = 'O';
+                } else {
+                    highlightTurn(player2);
+                    currentPlayer = player1;
+                    currentSymbol = 'X';
+                }
+            }, 3000); // Change turn every 3 seconds (example interval)
+
+            function highlightTurn(playerName) {
+                // Clear previous highlights
+                const allPlayers = document.querySelectorAll('.player');
+                allPlayers.forEach(player => {
+                    player.classList.remove('turn-highlight');
+                });
+
+                // Highlight current player's turn
+                const currentPlayerElement = document.getElementById(playerName);
+                currentPlayerElement.classList.add('turn-highlight');
+            }
+        }
+    </script>
+    <div class="turn-container">
+        <h3>Turn For</h3>
+        <div class="turn-box align">X</div>
+        <div class="turn-box align">O</div>        
+        <div class="bg"></div>
+    </div>
+    <div class="main-grid">
+        <div class="box align">0</div>
+        <div class="box align">1</div>
+        <div class="box align">2</div>
+        <div class="box align">3</div>
+        <div class="box align">4</div>
+        <div class="box align">5</div>
+        <div class="box align">6</div>
+        <div class="box align">7</div>
+        <div class="box align">8</div>
+    </div>
+    <form>
+        
+    
+      </form>
+    <h2 id="results"></h2>
+    <button id="play-again">Play Again</button>
+    <script src="C:\Users\amuly\OneDrive\Desktop\P1 three\script.js"></script>
+</body>
+</html>
